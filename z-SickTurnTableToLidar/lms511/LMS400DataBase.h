@@ -25,7 +25,7 @@ class LMS400Scan
 	string swap2(string toSwap);
 	string swap4(string toSwap);
 	int hex2Dec(string stringHex);
-	virtual void partition(int start, int startData, int startStatus);
+	void partition(int start, int startData, int startStatus);
 	
 	//not defined in base class
 	virtual void partition();

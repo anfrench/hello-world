@@ -133,7 +133,7 @@ int LMS400Scan::getSystemCounter(){return systemCounter;}
 /*
 	@param 	int start of param block
 			int start of data
-			int start of status
+			int Length of status
 	@return void
 	
 	@use	partitions the scan into the paramiter, data, and status block
@@ -172,6 +172,7 @@ string LMS400Scan::swap4(string toSwap)
 */
 int LMS400Scan::hex2Dec(string stringHex)
 {
+	
 	int dec;
 	stringstream transfer;
 	transfer<< std::hex << stringHex;

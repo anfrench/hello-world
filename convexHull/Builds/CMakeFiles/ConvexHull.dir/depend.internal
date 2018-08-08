@@ -250,6 +250,7 @@ CMakeFiles/ConvexHull.dir/ConvexHull.cpp.o
  /usr/include/pcl-1.7/pcl/common/distances.h
  /usr/include/pcl-1.7/pcl/common/eigen.h
  /usr/include/pcl-1.7/pcl/common/file_io.h
+ /usr/include/pcl-1.7/pcl/common/geometry.h
  /usr/include/pcl-1.7/pcl/common/impl/accumulators.hpp
  /usr/include/pcl-1.7/pcl/common/impl/angles.hpp
  /usr/include/pcl-1.7/pcl/common/impl/centroid.hpp
@@ -386,9 +387,14 @@ CMakeFiles/ConvexHull.dir/ConvexHull.cpp.o
  /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
  /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
  /usr/include/pcl-1.7/pcl/surface/boost.h
+ /usr/include/pcl-1.7/pcl/surface/eigen.h
  /usr/include/pcl-1.7/pcl/surface/gp3.h
  /usr/include/pcl-1.7/pcl/surface/impl/gp3.hpp
+ /usr/include/pcl-1.7/pcl/surface/impl/mls.hpp
+ /usr/include/pcl-1.7/pcl/surface/impl/processing.hpp
  /usr/include/pcl-1.7/pcl/surface/impl/reconstruction.hpp
+ /usr/include/pcl-1.7/pcl/surface/mls.h
+ /usr/include/pcl-1.7/pcl/surface/processing.h
  /usr/include/pcl-1.7/pcl/surface/reconstruction.h
  /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h
  /usr/include/pcl-1.7/pcl/visualization/boost.h

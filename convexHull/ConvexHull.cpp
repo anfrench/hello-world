@@ -32,33 +32,41 @@ int main()
 	{
 		timePer=time(NULL);
 		pclCluster *cluster= new pclCluster();
-		//pclCluster *cloud= new pclCluster();
+		pclCluster *cloud= new pclCluster();
 		PointCanopy *canopy= new PointCanopy();
 		cout<<"Working on: "<<fileName<<endl;
 		try
 		{
 			
 			cluster->open(fileName);
-			cluster->crop("y", 5, 0);
-			cluster->crop("z", 2, 0);
+			
+			//cluster->crop("z", 5, 2.12);
+			//cluster->crop("y", 5, 0);
+			//cluster->crop("x", .63, -.63);
+			cluster->findSize();
 			cluster->translateX(0);
 			cluster->translateY(0);
 			cluster->translateZ(0);
 			cluster->findSize();
-			cluster->save("LineUptest.pcd");
+			cluster->save("Sample.pcd");
 			canopy->setCloud(*cluster);
-			
-			canopy->makeCanopy(10);
+			canopy->makeCanopy(8);
+			cout<<"Canopy Made"<<endl;
 			
 			canopy->fillGaps(1);
 			canopy->fillGaps(2);
-			
+			canopy->fillGaps(1);
+			canopy->fillGaps(2);
+			canopy->fillGaps(1);
+			canopy->fillGaps(2);
+			canopy->fillGaps(1);
+			canopy->fillGaps(2);
+			canopy->smooth(3);
 			//smooth(double sigma, int samples)
-			canopy->smooth(5);
 			*cluster=canopy->getCanopy();
-			cluster->save("LineupCanopy.pcd");
+			cluster->crop("z", 5, -1);
 			//cluster->crop("y", 5, 0);
-			//cluster->crop("z", 2, 0);
+			cluster->save("noSmoothed.pcd");
 			//cluster->removeOutliers(50,1.75);
 			//------------------------------
 
@@ -90,13 +98,13 @@ int main()
   pcl::PolygonMesh triangles;
 
   // Set the maximum distance between connected points (maximum edge length)
-  gp3.setSearchRadius (0.35);
+  gp3.setSearchRadius (12);
 
   // Set typical values for the parameters
-  gp3.setMu (3.5);
-  gp3.setMaximumNearestNeighbors (10);
-  gp3.setMaximumSurfaceAngle(M_PI); 
-  gp3.setMinimumAngle(M_PI/18); 
+  gp3.setMu (12);
+  gp3.setMaximumNearestNeighbors (9);
+  gp3.setMaximumSurfaceAngle(2*M_PI); 
+  gp3.setMinimumAngle(M_PI/30); 
   gp3.setMaximumAngle(2*M_PI); 
   gp3.setNormalConsistency(true);
 

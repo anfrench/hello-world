@@ -1,4 +1,4 @@
-#define TOLERANCE .013
+#define TOLERANCE .015
 #define MAXZ 2.0
 #define MINZ 0.03
 #define MAXVOLUME 100.0
@@ -27,13 +27,13 @@ int main()
 	cloud->open(getFileName());
 	
 	//moving cloud to y axsis
-	cloud->translateCenter(0,0,cloud->center.z);
-	cloud->translate('y', 0);
+	//cloud->translateCenter(0,0,cloud->center.z);
+	//cloud->translate('y', 0);
 	
 	//croping and resizing new cloud
 	cloud->crop("z",MAXZ,MINZ);
 	//cloud->crop("y",4,0);
-	cloud->resize(2,12,0);
+	//cloud->resize(2,12,0);
 	cloud->removeOutliers( 100,1.80);
 	
 	//clustring cloud

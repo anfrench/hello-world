@@ -7,7 +7,7 @@
 #include <fstream>
 
 using namespace std;
-
+void getBounds(string fileName, int i);
 string fileName;
 void printTime(int seconds);
 void writeToFile(string ID, vector<double> pointHeightMax, vector<double>  pointHeightMin, vector< vector<double> > pointWidthMax, vector< vector<double> > pointWidthMin);
@@ -27,17 +27,27 @@ vector<plotDeviders> IDbounds;
 
 double maxx, minn;
 
+
+float cropUpper, cropLower;
 int layers, plotNumb, pointsOR;
 float stdMulOR, startY,endY;
 
 
 int main()
 {
+	fstream names;
+	names.open(INPUTFILE, fstream::in);
+	getline(names, fileName);
+	names.close();
 	
 	cout<<"Enter The number plots per file: ";
 	cin>>plotNumb;
 	cout<<"Enter The number of layers: ";
 	cin>>layers;
+	cout<<"Enter The Max Height: ";
+	cin>>cropUpper;
+	cout<<"Enter The Min Height: ";
+	cin>>cropLower;	
 	cout<<"Outlyer Removal-Points to consider: ";
 	cin>>pointsOR;
 	cout<<"Outlyer Removal-Standard deveation multiplyer: ";
@@ -47,14 +57,11 @@ int main()
 	IDbounds.resize(plotNumb);
 	for(int i=0; i<bounds.size(); i++)
 	{
-		cout<<"Upper bounds for plot ["<< i <<"] : ";
+		cout<<"Upper bounds for plot ["<< i <<"](From Center of cloud): ";
 		cin>>bounds[i].upper;
-		cout<<"Lower bounds for plot ["<< i <<"] : ";
+		cout<<"Lower bounds for plot ["<< i <<"](From Center of cloud) : ";
 		cin>>bounds[i].lower;
-		cout<< "Where's the id in the fileName start? plot["<< i <<"]: ";
-		cin>>IDbounds[i].upper;
-		cout<<"Where's the id in the fileName End?plot["<< i <<"]: ";
-		cin>>IDbounds[i].lower;
+		getBounds(fileName, i);
 	}
 
 	//variables used for timeStamps
@@ -63,7 +70,6 @@ int main()
 	int seconds;
 	
 	//File where the filenames are kept
-	fstream names;
 	names.open(INPUTFILE, fstream::in);
 	while(getline(names, fileName))
 	{
@@ -81,7 +87,7 @@ int main()
 			cout<< " after translating   \n";
 			//croping z to remove ground and plot noise
 			//needs to be an input value 
-			cluster->crop("z",MAXZ,MINZ);
+			cluster->crop("z",cropUpper,cropLower);
 			cout<< " after crop   \n";
 			for(int i = 0; i<plotNumb; i++)
 			{
@@ -241,7 +247,30 @@ vector<double> smooth(vector<double> data, int buffer)
 }
 
 
-
+void getBounds(string fileName, int i)
+{
+	int cut,length;
+	bool again = true;
+	char yn;
+	string sub;
+	while(again)
+	{
+		cout<< "Where's the id in the fileName start? plot["<< i <<"] 0-" <<fileName.length()<<": ";
+		cin>>cut;
+		cout<<"How long is the ID?  ";
+		cin>>length;
+		
+		sub = fileName.substr(cut,length);
+		
+		cout<<"Is this the correct Identifier? "<<sub;
+		cout << " (Y/N)\n";
+		cin>>yn;
+		again = !(yn=='Y' || yn == 'y');
+	}
+	IDbounds[i].upper=cut;
+	IDbounds[i].lower=length;
+	
+}
 
 
 

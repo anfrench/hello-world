@@ -39,10 +39,6 @@ int main()
 		{
 			
 			cluster->open(fileName);
-			
-			//cluster->crop("z", 5, 2.12);
-			//cluster->crop("y", 5, 0);
-			//cluster->crop("x", .63, -.63);
 			cluster->findSize();
 			cluster->translateX(0);
 			cluster->translateY(0);

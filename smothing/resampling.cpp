@@ -4,21 +4,25 @@
 #include <pcl/surface/mls.h>
 #include <iostream>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 int
 main (int argc, char** argv)
 {
-  string fileName;
+  string fileNameIn,fileNameOut;
+  float searchRad;
+  cout<<"What file would you like to proces?: \n";
+  getline(cin, fileNameIn);
+  cout<<"What would you like to name the result?:\n";
+  getline(cin, fileNameOut);
+  cout<<"What search radious would you like to use?: ";
+  cin>>searchRad;
   // Load input file into a PointCloud<T> with an appropriate type
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ> ());
   // Load bun0.pcd -- should be available with the PCL archive in test 
-  cout<<"Enter File Name: ";
-  getline(cin, fileName);
-  pcl::io::loadPCDFile (fileName, *cloud);
-
- fileName = "Smoothed"+fileName;
+  pcl::io::loadPCDFile (fileNameIn, *cloud);
 
   // Create a KD-Tree
   pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ>);
@@ -35,11 +39,14 @@ main (int argc, char** argv)
   mls.setInputCloud (cloud);
   mls.setPolynomialFit (true);
   mls.setSearchMethod (tree);
-  mls.setSearchRadius (0.03);
+  mls.setSearchRadius (searchRad);
 
   // Reconstruct
   mls.process (mls_points);
 
+	std::cout<<mls_points.points.size();
+
   // Save output
-  pcl::io::savePCDFile (fileName, mls_points);
+  pcl::io::savePCDFile (fileNameOut, mls_points);
 }
+

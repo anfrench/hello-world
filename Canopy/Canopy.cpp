@@ -22,6 +22,10 @@ int main()
 	timeTotal=time(NULL);
 	int seconds;
 
+	int canopyRatio;
+	cout<<"What's the Canopy Ratio? (5-10 recomended): ";
+	cin>>canopyRatio;
+
 	//File where the filenames are kept
 	fstream names;
 	names.open(INPUTFILE, fstream::in);
@@ -41,7 +45,7 @@ int main()
 			cluster->translateY(0);
 			cluster->findSize();
 			canopy->setCloud(*cluster);
-			canopy->makeCanopy(10);
+			canopy->makeCanopy(canopyRatio);
 			*cluster=canopy->getCanopy();
 			cluster->findSize();
 			cluster->crop("z", 5, -1);

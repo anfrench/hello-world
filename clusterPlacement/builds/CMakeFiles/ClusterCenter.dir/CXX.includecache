@@ -22,6 +22,10 @@ Color.h
 includes.h
 /home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/includes.h
 
+/home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/donFilter.h
+includes.h
+/home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/includes.h
+
 /home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/downsamp.h
 includes.h
 /home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/includes.h
@@ -51,6 +55,10 @@ pcl/filters/voxel_grid.h
 -
 pcl/filters/statistical_outlier_removal.h
 -
+pcl/features/normal_3d_omp.h
+-
+pcl/filters/conditional_removal.h
+-
 pcl/sample_consensus/method_types.h
 -
 pcl/sample_consensus/model_types.h
@@ -67,12 +75,20 @@ pcl/ModelCoefficients.h
 -
 pcl/features/normal_3d.h
 -
+pcl/features/don.h
+-
+pcl/search/organized.h
+-
+pcl/search/kdtree.h
+-
 boost/thread/thread.hpp
 -
 
 /home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/pclCluster.h
 downsamp.h
 /home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/downsamp.h
+donFilter.h
+/home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/donFilter.h
 includes.h
 /home/pbeckwith/code/PhilipBeckwith'sCode/clusterPlacement/pclLib/includes.h
 
@@ -1522,6 +1538,12 @@ pcl/pcl_macros.h
 boost/current_function.hpp
 -
 
+/usr/include/pcl-1.7/pcl/features/don.h
+pcl/features/feature.h
+-
+pcl/features/impl/don.hpp
+-
+
 /usr/include/pcl-1.7/pcl/features/feature.h
 boost/function.hpp
 -
@@ -1534,6 +1556,10 @@ pcl/search/search.h
 pcl/features/impl/feature.hpp
 -
 
+/usr/include/pcl-1.7/pcl/features/impl/don.hpp
+pcl/features/don.h
+-
+
 /usr/include/pcl-1.7/pcl/features/impl/feature.hpp
 pcl/search/pcl_search.h
 -
@@ -1542,12 +1568,22 @@ pcl/search/pcl_search.h
 pcl/features/normal_3d.h
 -
 
+/usr/include/pcl-1.7/pcl/features/impl/normal_3d_omp.hpp
+pcl/features/normal_3d_omp.h
+-
+
 /usr/include/pcl-1.7/pcl/features/normal_3d.h
 pcl/features/feature.h
 -
 pcl/common/centroid.h
 -
 pcl/features/impl/normal_3d.hpp
+-
+
+/usr/include/pcl-1.7/pcl/features/normal_3d_omp.h
+pcl/features/normal_3d.h
+-
+pcl/features/impl/normal_3d_omp.hpp
 -
 
 /usr/include/pcl-1.7/pcl/filters/boost.h
@@ -1574,6 +1610,14 @@ boost/function.hpp
 boost/optional.hpp
 -
 
+/usr/include/pcl-1.7/pcl/filters/conditional_removal.h
+pcl/common/eigen.h
+-
+pcl/filters/filter.h
+-
+pcl/filters/impl/conditional_removal.hpp
+-
+
 /usr/include/pcl-1.7/pcl/filters/extract_indices.h
 pcl/filters/filter_indices.h
 -
@@ -1598,6 +1642,14 @@ pcl/filters/impl/filter.hpp
 pcl/filters/filter.h
 -
 pcl/filters/impl/filter_indices.hpp
+-
+
+/usr/include/pcl-1.7/pcl/filters/impl/conditional_removal.hpp
+pcl/common/io.h
+-
+pcl/common/copy_point.h
+-
+pcl/filters/conditional_removal.h
 -
 
 /usr/include/pcl-1.7/pcl/filters/impl/extract_indices.hpp

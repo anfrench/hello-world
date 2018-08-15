@@ -17,6 +17,16 @@ string getFileName();
 
 int main()
 {
+	int maxPoints, minPoints;
+	float tolerance;
+	
+	cout<<"Enter Maximum Points: ";	
+	cin>> maxpoints;
+	cout<<"Enter Minimum Points: ";	
+	cin>> minPoints;
+	cout<<"Enter Clustering Tolerance: ";	
+	cin>> tolerance;
+
 	pointColors *color = new pointColors();
 	pcl::PointCloud<pcl::PointXYZRGB>::Ptr colored (new pcl::PointCloud<pcl::PointXYZRGB>);
 	pcl::PointCloud<pcl::PointXYZRGB>::Ptr temp (new pcl::PointCloud<pcl::PointXYZRGB>);
@@ -37,7 +47,7 @@ int main()
 	cloud->removeOutliers( 100,2.0);
 	
 	//clustring cloud
-	clusters = cloud->EuclideanCluster(5,300000,TOLERANCE);
+	clusters = cloud->EuclideanCluster(minPoints,maxPoints,tolerance);
 	
 	//turning clusters into circles
 	clusters = clustersToCircles(clusters);

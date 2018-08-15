@@ -34,7 +34,7 @@ int main()
 	cloud->crop("z",MAXZ,MINZ);
 	//cloud->crop("y",4,0);
 	//cloud->resize(2,12,0);
-	cloud->removeOutliers( 100,1.80);
+	cloud->removeOutliers( 100,2.0);
 	
 	//clustring cloud
 	clusters = cloud->EuclideanCluster(5,300000,TOLERANCE);

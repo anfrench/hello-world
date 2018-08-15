@@ -12,9 +12,20 @@ using namespace std;
 
 int main()
 {
+	float cropMax=10,cropMin=-10;
+	string outputFile="TotalField.PCD";
 	//Vector of point clouds
 	vector<pclCluster> cloudSum;
 	
+	//setting crop values and output
+	cout<<"Enter Maximum Height: ";
+	cin>>cropMax;
+	cout<<"Enter Minimum Height: ";
+	cin>>cropMin;
+	cout<<"Enter Output File Name: \n";
+	getline(cin, outputFile);
+
+
 	//File where the filenames are kept
 	fstream names;
 	names.open(INPUTFILE, fstream::in);
@@ -27,7 +38,7 @@ int main()
 		cluster->open(fileName);
 		
 		//croping out ground
-		cluster->crop("z",CROPZMAX,CROPZMIN);
+		cluster->crop("z",cropMax,cropMin);
 		
 		//puting cloud in vector
 		cloudSum.push_back(*cluster);
@@ -38,5 +49,5 @@ int main()
 	pclCluster field = combineVectorCloud(cloudSum);
 	
 	//saving
-	field.save("TotalField.PCD");
+	field.save(outputFile);
 }

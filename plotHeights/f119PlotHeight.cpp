@@ -8,7 +8,7 @@
 
 //input(FileName)/ output(Dir path)
 #define INPUTFILE "plots.txt"
-#define BOUNDS "f119UTM.csv"
+#define BOUNDS "Bounds.csv"
 
 //for printing defined atrabutes as strings
 #define STRINGIFY2(X) #X
@@ -42,14 +42,22 @@ string intToString(int in);
 
 int main()
 {
+	float zHeight=10, zMin=-5;
+	int canopyDencity;
 	vector<PlantHeights> heights;
-	FILE * outFile;
-	outFile = fopen("PlotHeights.csv","w");
 	//variables used for timeStamps
 	time_t timeTotal, timePer, end;
 	timeTotal=time(NULL);
 	int seconds;
-	
+
+	cout<<"Float Enter Maximum Height: ";	
+	cin>> zHeight;
+	cout<<"Float Enter Minimum Height: ";	
+	cin>> zMin;
+	cout<<"Int Enter Canopy Dencity (5-10 recomended): ";
+	cin>> canopyDencity;
+		
+
 	//File where the filenames are kept
 	fstream names;
 	names.open(INPUTFILE, fstream::in);
@@ -58,6 +66,9 @@ int main()
 	//proceses every file in the input file
 	while(getline(names, fileName))
 	{
+		//opening output file
+		FILE * outFile;
+		outFile = fopen((fileName.substr(0,fileName.length()-4)+"_Heights.csv").c_str(),"w");
 		//Reseting the time
 		timePer=time(NULL);
 		
@@ -77,13 +88,13 @@ int main()
 			
 			//passing cloud to canopy to be procesed
 			canopy->setCloud(*cluster);
-			canopy->makeCanopy(5);
+			canopy->makeCanopy(canopyDencity);
 			
 			//Canopy is done and passes cloud back
 			*cluster=canopy->getCanopy();
 			
 			//removing ground and setting new height to 0
-			cluster->crop("z", 5, 2.1);
+			cluster->crop("z", zHeight,zMin);
 			cluster->findSize();
 			cluster->translateZ(0);
 			cluster->findSize();
@@ -122,6 +133,7 @@ int main()
 			
 			//clearing vector
 			heights.clear();
+			fclose(outFile);
 			
 			//printing time per file
 			cout<<"sucsess! ";
@@ -135,7 +147,6 @@ int main()
 	seconds = difftime(end, timeTotal);
 	cout<<"Total ";
 	printTime(seconds);
-	fclose(outFile);
 		
 }
 

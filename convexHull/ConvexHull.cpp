@@ -128,7 +128,7 @@ int main()
   // Additional vertex information
   //std::vector<int> parts = gp3.getPartIDs();
  // std::vector<int> states = gp3.getPointStates();
-pcl::io::saveVTKFile("Mesh.vtk", triangles);
+pcl::io::saveVTKFile((fileName.substr(0,fileName.length()-4)+"Mesh.vtk"), triangles);
 		//----------------------------*/
 			cout<<"sucsess! ";
 			end=time(NULL);

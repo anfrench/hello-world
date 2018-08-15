@@ -1,6 +1,6 @@
-
-------cloudMerger-----
-	This program opens several pcd files, crops the z axsis (To remove ground and upper noise), sums all clouds into one, and saves the result. 
+﻿
+------cloud Merger-----
+	This program opens several pcd files, crops the z axis (To remove ground and upper noise), sums all clouds into one, and saves the result. 
 	The input cloud file names/location are all obtained from an input file called "fileNames.txt".  
 
 	----Variables----

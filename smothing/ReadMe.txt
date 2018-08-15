@@ -1,12 +1,12 @@
-
+﻿
 	----Resampling----
-	An Excample from pointclouds.org
+	An Example from pointclouds.org
 	Smooths the point cloud.
-	/home/pbeckwith/code/PhilipBeckwith'sCode/z-SickDecoder/ExcessRemoval.cpp
+	http://pointclouds.org/documentation/tutorials/resampling.php#moving-least-squares
 
-	Modified to take in veriables. 
+	Modified to take in variables. 
 
 	----Variables----
-	(String) fileNameIn
-	(String) fileNameOut
-	(float ) SearchRadious
+	(String) file Name In
+	(String) file Name Out
+	(float ) Search Radius

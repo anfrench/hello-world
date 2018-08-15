@@ -14,6 +14,7 @@
 using namespace std;
 
 string fileName;
+float toRad(double angle, int steps);
 void printTime(int seconds);
 void writeToFile(string ID, double northAdjust, double eastAdjust , vector<pclCluster> cloud);
 void writeHeader(FILE *file, string ID ,vector<pclCluster> cloud, double xAdjust, double yAdjust);
@@ -25,6 +26,29 @@ int main()
 	timeTotal=time(NULL);
 	int seconds;
 
+
+	int canopyRatio, maxNeighbor;
+	
+	float searchRad, mu;
+	float maxSurfaceAngle;
+	float minAngle, maxAngle;
+	
+	cout<<"Enter Canopy Ratio(5-10 recomended):";
+	cin>> canopyRatio; 
+	cout<<"Enter Search Radious:";
+	cin>> searchRad; 
+	cout<<"Enter Maximum Surface Angle:";
+	cin>> maxSurfaceAngle; 
+	cout<<"Enter Minimum Angle:";
+	cin>> minAngle; 
+	cout<<"Enter Maximum Angle:";
+	cin>> maxAngle; 
+
+
+
+
+
+	
 	//File where the filenames are kept
 	fstream names;
 	names.open(INPUTFILE, fstream::in);
@@ -46,24 +70,16 @@ int main()
 			cluster->findSize();
 			cluster->save("Sample.pcd");
 			canopy->setCloud(*cluster);
-			canopy->makeCanopy(8);
+			canopy->makeCanopy(canopyRatio);
 			cout<<"Canopy Made"<<endl;
 			
 			canopy->fillGaps(1);
 			canopy->fillGaps(2);
 			canopy->fillGaps(1);
 			canopy->fillGaps(2);
-			canopy->fillGaps(1);
-			canopy->fillGaps(2);
-			canopy->fillGaps(1);
-			canopy->fillGaps(2);
 			canopy->smooth(3);
-			//smooth(double sigma, int samples)
 			*cluster=canopy->getCanopy();
 			cluster->crop("z", 5, -1);
-			//cluster->crop("y", 5, 0);
-			cluster->save("noSmoothed.pcd");
-			//cluster->removeOutliers(50,1.75);
 			//------------------------------
 
 
@@ -94,14 +110,14 @@ int main()
   pcl::PolygonMesh triangles;
 
   // Set the maximum distance between connected points (maximum edge length)
-  gp3.setSearchRadius (12);
+  gp3.setSearchRadius (searchRad);
 
   // Set typical values for the parameters
-  gp3.setMu (12);
-  gp3.setMaximumNearestNeighbors (9);
-  gp3.setMaximumSurfaceAngle(2*M_PI); 
-  gp3.setMinimumAngle(M_PI/30); 
-  gp3.setMaximumAngle(2*M_PI); 
+  gp3.setMu (mu);
+  gp3.setMaximumNearestNeighbors (maxNeighbor);
+  gp3.setMaximumSurfaceAngle(toRad(maxSurfaceAngle, 360)); 
+  gp3.setMinimumAngle(toRad(minAngle, 360)); 
+  gp3.setMaximumAngle(toRad(maxAngle, 360)); 
   gp3.setNormalConsistency(true);
 
   // Get result
@@ -144,7 +160,10 @@ void printTime(int seconds)
 
 
 
-
+float toRad(double angle, int steps)
+{
+	return M_PI * angle / (steps / 2 );
+}
 
 
 

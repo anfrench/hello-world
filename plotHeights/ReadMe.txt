@@ -1,5 +1,5 @@
 
-------plotHeights-----
+	------plotHeights-----
 	This program calculates the average height and standard deveation of point clouds canopy.
 	It can process several files at once.
 	All file names that you would like to process should be contained in a file called "plots.txt".

@@ -16,8 +16,7 @@
 	for int i =0 to number of plots per file
 	{
 		(float) Upper bounds for plot i
-		(float) Lower bounds for plot i 
-		
+		(float) Lower bounds for plot i 	
 	}
 
 	

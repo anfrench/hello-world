@@ -21,6 +21,22 @@ int main()
 	time_t timeTotal, timePer, end;
 	timeTotal=time(NULL);
 	int seconds;
+	
+	float maxZ, minZ;
+	int minClusterSize, maxClusterSize;
+	float tolerance;
+	
+	cout<<"Enter Maximum Z: ";
+	cin>> maxZ;
+	cout<<"Enter Minimum Z: ";
+	cin>> minZ;
+	cout<<"Enter Maximum cluster points: ";
+	cin>> maxClusterSize;
+	cout<<"Enter Minimum cluster points: ";
+	cin>> minClusterSize;
+	cout<<"Enter Tolerance: ";
+	cin>> tolerance;
+
 
 	//File where the filenames are kept
 	fstream names;
@@ -53,15 +69,15 @@ int main()
 			//cloudUpper[0].cloud=donFilter(SHORT, LARGE, MAG, cloudUpper[0].cloud);
 			
 			//croping z to remove ground and upper noise 
-			cloudUpper = cropAll("z",MAXZ,MINZ,cloudUpper);
+			cloudUpper = cropAll("z",maxZ,minZ,cloudUpper);
 
 			//seporating upper and lower plots
 			cloudLower= cropAll("x",-XINNER,-XOUTER,cloudUpper);
 			cloudUpper= cropAll("x",XOUTER,XINNER,cloudUpper);
 			
 			//clustring 
-			cloudUpper= cloudUpper[0].EuclideanCluster(5,30000,TOLERANCE);
-			cloudLower= cloudLower[0].EuclideanCluster(5,30000,TOLERANCE);
+			cloudUpper= cloudUpper[0].EuclideanCluster(minClusterSize,maxClusterSize,tolerance);
+			cloudLower= cloudLower[0].EuclideanCluster(minClusterSize,maxClusterSize,tolerance);
 			
 			//filtering
 			//cloudUpper=volumeFilter(MINVOLUME,MAXVOLUME, cloudUpper);

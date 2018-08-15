@@ -15,4 +15,9 @@
 	the same way.
 
 	----Variables----
+	(float) Maximum Z 
+	(float) Minimum Z
+	(float) Maximum cluster points	
+	(float) Minimum cluster points
+	(float) Tolerance
 	

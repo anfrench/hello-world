@@ -29,8 +29,9 @@ int main()
 	cout<<"ring Dencity:  ";
 	cin>>ringDen;
 	
-	cloud = makeBranch(diam,length,ringDen ,pointNumb);
-
+	//cloud = makeBranch(diam,length,ringDen ,pointNumb);
+	cloud = makeUnitCircle();
+	
 	cluster.cloud = cloud;
 	cluster.findSize();
 	cout<<"Points"<<cluster.cloud->points.size() <<endl;

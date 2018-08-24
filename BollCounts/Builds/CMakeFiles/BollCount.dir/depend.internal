@@ -9,6 +9,7 @@ CMakeFiles/BollCount.dir/BollCount.cpp.o
  /home/pbeckwith/code/PhilipBeckwith'sCode/BollCounts/pclLib/downsamp.h
  /home/pbeckwith/code/PhilipBeckwith'sCode/BollCounts/pclLib/includes.h
  /home/pbeckwith/code/PhilipBeckwith'sCode/BollCounts/pclLib/pclCluster.h
+ /home/pbeckwith/code/PhilipBeckwith'sCode/BollCounts/pclLib/pclMaker.h
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/Dense
@@ -247,6 +248,7 @@ CMakeFiles/BollCount.dir/BollCount.cpp.o
  /usr/include/pcl-1.7/pcl/common/distances.h
  /usr/include/pcl-1.7/pcl/common/eigen.h
  /usr/include/pcl-1.7/pcl/common/file_io.h
+ /usr/include/pcl-1.7/pcl/common/geometry.h
  /usr/include/pcl-1.7/pcl/common/impl/accumulators.hpp
  /usr/include/pcl-1.7/pcl/common/impl/angles.hpp
  /usr/include/pcl-1.7/pcl/common/impl/centroid.hpp
@@ -381,6 +383,12 @@ CMakeFiles/BollCount.dir/BollCount.cpp.o
  /usr/include/pcl-1.7/pcl/segmentation/impl/extract_clusters.hpp
  /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
  /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
+ /usr/include/pcl-1.7/pcl/surface/boost.h
+ /usr/include/pcl-1.7/pcl/surface/eigen.h
+ /usr/include/pcl-1.7/pcl/surface/impl/mls.hpp
+ /usr/include/pcl-1.7/pcl/surface/impl/processing.hpp
+ /usr/include/pcl-1.7/pcl/surface/mls.h
+ /usr/include/pcl-1.7/pcl/surface/processing.h
  /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h
  /usr/include/pcl-1.7/pcl/visualization/boost.h
  /usr/include/pcl-1.7/pcl/visualization/common/actor_map.h

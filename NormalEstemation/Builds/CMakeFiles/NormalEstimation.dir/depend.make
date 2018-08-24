@@ -7,6 +7,7 @@ CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: ../pclLib/donFilter.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: ../pclLib/downsamp.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: ../pclLib/includes.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: ../pclLib/pclCluster.h
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: ../pclLib/pclMaker.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/eigen3/Eigen/Core
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/eigen3/Eigen/Dense
@@ -245,6 +246,7 @@ CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/common/distances.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/common/eigen.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/common/file_io.h
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/common/geometry.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/common/impl/accumulators.hpp
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/common/impl/angles.hpp
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/common/impl/centroid.hpp
@@ -379,6 +381,12 @@ CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/segmentation/impl/extract_clusters.hpp
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/surface/boost.h
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/surface/eigen.h
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/surface/impl/mls.hpp
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/surface/impl/processing.hpp
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/surface/mls.h
+CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/surface/processing.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/visualization/boost.h
 CMakeFiles/NormalEstimation.dir/NormalEstimation.cpp.o: /usr/include/pcl-1.7/pcl/visualization/common/actor_map.h
